@@ -84,7 +84,7 @@ services:
   superset-websocket:
     container_name: superset_websocket
     build: ./superset-websocket
-    image: superset-websocket
+#    image: superset-websocket
     ports:
       - 8080:8080
     extra_hosts:
