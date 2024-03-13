@@ -61,7 +61,7 @@ services:
       - .certs:/etc/nginx/certs:ro
       - /var/run/docker.sock:/tmp/docker.sock:ro
     environment:
-      DEFAULT_HOST: superset.localhost
+      DEFAULT_HOST: localhost
     
 
 
@@ -95,7 +95,7 @@ services:
     volumes: *superset-volumes
     environment:
       CYPRESS_CONFIG: "${CYPRESS_CONFIG}"
-      VIRTUAL_HOST: superset.localhost
+      VIRTUAL_HOST: localhost
       WEB_PORTS: 8088
 
   superset-websocket:
