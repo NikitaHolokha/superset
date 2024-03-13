@@ -52,22 +52,6 @@ services:
       - "127.0.0.1:6379:6379"
     volumes:
       - redis:/data
-
-  nginx-proxy:
-    image: jwilder/nginx-proxy
-    ports:
-      - "443:443"
-    volumes:
-      - .certs:/etc/nginx/certs:ro
-      - /var/run/docker.sock:/tmp/docker.sock:ro
-    environment:
-      DEFAULT_HOST: localhost
-    
-
-
-
-
-
   db:
     env_file: docker/.env
     image: postgres:15
@@ -95,8 +79,6 @@ services:
     volumes: *superset-volumes
     environment:
       CYPRESS_CONFIG: "${CYPRESS_CONFIG}"
-      VIRTUAL_HOST: localhost
-      WEB_PORTS: 8088
 
   superset-websocket:
     container_name: superset_websocket
